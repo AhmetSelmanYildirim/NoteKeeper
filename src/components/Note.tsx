@@ -10,39 +10,14 @@ const Note = ({ note }: { note: NoteType }) => {
   const { deleteNote } = noteContext;
 
   return (
-    <div
-      style={{
-        border: "1px solid #e0e0e0",
-        borderRadius: "2rem",
-        padding: "0px 10px",
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center",
-        margin: "10px 0px",
-      }}
-    >
-      <span
-        style={{
-          fontSize: "1.5rem",
-          fontWeight: "bold",
-          padding: "5px 10px",
-          margin: "3px 0px",
-          textAlign: "left",
-          wordBreak: "break-word",
-        }}
-      >
+    <div className="border border-gray-300 rounded-[2rem] px-[10px] flex flex-wrap justify-between items-center my-[10px] w-full">
+      <span className="text-[1.5rem] font-bold py-[5px] px-[10px] my-[3px] mx-0 text-left break-words w-[80%]">
         {note.text}
       </span>
 
       <button
-        style={{
-          fontWeight: "700",
-          background: "red",
-          border: "none",
-          height: "2rem",
-          borderRadius: "25px",
-          cursor: "pointer",
-        }}
+        className="font-bold bg-red-500 text-white border-none h-[2rem] rounded-full px-4 cursor-pointer "
+        // className="font-bold bg-red-500 text-white border-none h-[2rem] rounded-full px-4 cursor-pointer"
         onClick={() => {
           deleteNote(note.id);
         }}

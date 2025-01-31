@@ -11,7 +11,7 @@ const NoteList = () => {
   const { noteList } = noteContext;
 
   return (
-    <div style={{}}>
+    <div>
       <h2>Not Listesi</h2>
       {noteList && noteList.length > 0 ? (
         noteList.map((note: NoteType) => (

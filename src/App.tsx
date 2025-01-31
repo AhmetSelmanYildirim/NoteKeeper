@@ -1,10 +1,14 @@
 import "./App.css";
+import NoteList from "./components/NoteList";
+import Input from "./components/Input";
+import { NoteProvider } from "./contexts/NoteContext";
 
 function App() {
   return (
-    <>
-      <h1>Hello World</h1>
-    </>
+    <NoteProvider>
+      <Input></Input>
+      <NoteList></NoteList>
+    </NoteProvider>
   );
 }
 

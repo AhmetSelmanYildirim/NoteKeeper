@@ -27,6 +27,8 @@ const Note = ({ note }: { note: NoteType }) => {
           fontWeight: "bold",
           padding: "5px 10px",
           margin: "3px 0px",
+          textAlign: "left",
+          wordBreak: "break-word",
         }}
       >
         {note.text}

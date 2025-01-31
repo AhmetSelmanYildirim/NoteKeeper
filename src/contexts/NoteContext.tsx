@@ -8,14 +8,16 @@ export const NoteContext = createContext<NoteContextType | undefined>(
 export const NoteProvider = ({ children }: { children: React.ReactNode }) => {
   const [noteList, setNoteList] = useState<NoteType[]>([]);
 
-  const getNoteList = async () => {
-    const notes = [
-      { id: 1, text: "birinci" },
-      { id: 2, text: "ikinci" },
-      { id: 3, text: "üçüncü" },
-    ];
-    setNoteList(notes);
-    return notes;
+  const getNoteList = () => {
+    window.electronAPI
+      .getNotes()
+      .then((data: NoteType[]) => {
+        console.log("data :>> ", data);
+        setNoteList(data);
+      })
+      .catch((err) => {
+        console.log("err:", err);
+      });
   };
 
   useEffect(() => {
@@ -23,10 +25,14 @@ export const NoteProvider = ({ children }: { children: React.ReactNode }) => {
   }, []);
 
   const deleteNote = (id: number) => {
-    setNoteList((prev) => prev.filter((note) => note.id !== id));
+    window.electronAPI.deleteNote(id).then((updatedNotes: NoteType[]) => {
+      setNoteList(updatedNotes);
+    });
   };
   const addNote = (note: NoteType) => {
-    setNoteList((pre) => [...pre, note]);
+    window.electronAPI.addNote(note).then((addedNote: NoteType) => {
+      setNoteList([...noteList, addedNote]);
+    });
   };
 
   const value: NoteContextType = {

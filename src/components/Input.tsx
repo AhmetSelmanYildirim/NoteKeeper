@@ -40,6 +40,8 @@ const Input = () => {
               padding: "0.5em 1.5em ",
               cursor: "pointer",
               borderRadius: "6px",
+              border: "none",
+              fontWeight: 700,
             }}
             onClick={handleAddNote}
           >

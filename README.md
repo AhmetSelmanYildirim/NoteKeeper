@@ -56,7 +56,5 @@ Electron, React, ContextAPI, TailwindCSS
 
 ## Screenshots
 
-<div style="display: flex; justify-content: space-between;">
-  <img src="https://i.hizliresim.com/57zj1zf.png" width="45%" />
-  <img src="https://i.hizliresim.com/iyckunq.png" width="45%" />
-</div>
+[![Image](https://i.hizliresim.com/57zj1zf.png)](https://hizliresim.com/57zj1zf)
+[![Image](https://i.hizliresim.com/iyckunq.png)](https://hizliresim.com/iyckunq)

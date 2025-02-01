@@ -20,6 +20,8 @@ Vite ile oluşturulmuştur.
   yarn install
 ```
 
+**Önemli Not:** development ortamı için **_.env_** oluşturulup `NODE_ENV=development` environment i eklenmelidir.
+
 2.1.Development ortamının çalıştırılması
 
 ```bash
@@ -38,6 +40,8 @@ Vite ile oluşturulmuştur.
     "dev": "concurrently \"vite\" \"electron .\"",
   },
 ```
+
+**Önemli Not:** Build almadan önce `NODE_ENV` değiştirilmeli veya kaldırılmalıd.r.
 
 3.Production ortamında çalıştırılması
 

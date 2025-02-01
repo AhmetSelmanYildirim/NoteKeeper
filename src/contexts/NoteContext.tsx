@@ -1,18 +1,20 @@
 import { createContext, useEffect, useState } from "react";
 import { NoteContextType, Note as NoteType } from "../types";
 
+// Context oluşturuluyor.
 export const NoteContext = createContext<NoteContextType | undefined>(
   undefined
 );
 
+// Componentlerde kullanılmak üzere Context provider oluşturuluyor.
 export const NoteProvider = ({ children }: { children: React.ReactNode }) => {
   const [noteList, setNoteList] = useState<NoteType[]>([]);
 
+  // Uygulama ilk çalıştığında var olan notlar storedan getiriliyor.
   const getNoteList = () => {
     window.electronAPI
       .getNotes()
       .then((data: NoteType[]) => {
-        console.log("data :>> ", data);
         setNoteList(data);
       })
       .catch((err) => {
@@ -24,17 +26,21 @@ export const NoteProvider = ({ children }: { children: React.ReactNode }) => {
     getNoteList();
   }, []);
 
+  // Not silme fonksiyonu
   const deleteNote = (id: number) => {
     window.electronAPI.deleteNote(id).then((updatedNotes: NoteType[]) => {
       setNoteList(updatedNotes);
     });
   };
+
+  // Not ekleme fonksiyonu
   const addNote = (note: NoteType) => {
     window.electronAPI.addNote(note).then((addedNote: NoteType) => {
       setNoteList([...noteList, addedNote]);
     });
   };
 
+  // Componentlerde kullanılacak değerler export ediliyor.
   const value: NoteContextType = {
     noteList,
     setNoteList,

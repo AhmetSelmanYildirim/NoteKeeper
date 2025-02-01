@@ -7,12 +7,14 @@ const __dirname = path.resolve();
 
 let mainWindow;
 
+// Store yapısı kurgulanıyor.
 const store = new Store({
   name: "notes",
   cwd: path.join(__dirname, "store"),
   defaults: { notes: [] },
 });
 
+// Uygulama ekranı oluşturuluyor ve konfigurasyonları yapılıyor.
 function createWindow() {
   mainWindow = new BrowserWindow({
     width: 800,
@@ -26,6 +28,7 @@ function createWindow() {
     },
   });
 
+  // Development sürecindeyken hot reload yapılması sağlanıyor.
   if (process.env.NODE_ENV === "development") {
     mainWindow.loadURL("http://localhost:5173");
   } else {
@@ -47,6 +50,7 @@ app.whenReady().then(() => {
   });
 });
 
+// preload.js'de tanımlanan fonksiyonların atamaları yapılıyor.
 ipcMain.handle("get-notes", () => {
   return store.get("notes");
 });
@@ -67,6 +71,7 @@ ipcMain.handle("delete-note", (event, id) => {
   return updatedNotes;
 });
 
+// Pencere kapatıldığında uygulamanın kapatılmasını sağlar.
 app.on("window-all-closed", () => {
-  if (process.platform !== "darwin") app.quit();
+  app.quit();
 });

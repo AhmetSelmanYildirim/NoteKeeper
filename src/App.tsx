@@ -4,6 +4,7 @@ import { NoteProvider } from "./contexts/NoteContext";
 
 function App() {
   return (
+    // NoteContext provider implement ediliyor.
     <NoteProvider>
       <Input></Input>
       <NoteList></NoteList>

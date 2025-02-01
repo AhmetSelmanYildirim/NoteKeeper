@@ -2,14 +2,16 @@ import { useContext, useState } from "react";
 import { NoteContext } from "../contexts/NoteContext";
 
 const Input = () => {
+  // Context import ediliyor.
   const noteContext = useContext(NoteContext);
   const [text, setText] = useState("");
   if (!noteContext) {
     return <div>Context bekleniyor...</div>;
   }
+  // Componentte kullanılacak addNote() fonksiyonu destruct ediliyor.
   const { addNote } = noteContext;
 
-  // add fonksiyonu buradan çağrılacak
+  // Not ekleme fonksiyonu
   const handleAddNote = () => {
     if (!text) {
       alert("Not boş olamaz!");

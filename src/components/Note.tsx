@@ -2,11 +2,13 @@ import { useContext } from "react";
 import { Note as NoteType } from "../types";
 import { NoteContext } from "../contexts/NoteContext";
 const Note = ({ note }: { note: NoteType }) => {
-  //Delete fonksiyonu buradan çağrılacak
+  // Context import ediliyor.
   const noteContext = useContext(NoteContext);
   if (!noteContext) {
     return <div>Context bekleniyor...</div>;
   }
+
+  // Componentte kullanılacak deleteNote() fonksiyonu destruct ediliyor.
   const { deleteNote } = noteContext;
 
   return (
@@ -17,7 +19,6 @@ const Note = ({ note }: { note: NoteType }) => {
 
       <button
         className="font-bold bg-red-500 text-white border-none h-[2rem] rounded-full px-4 cursor-pointer "
-        // className="font-bold bg-red-500 text-white border-none h-[2rem] rounded-full px-4 cursor-pointer"
         onClick={() => {
           deleteNote(note.id);
         }}

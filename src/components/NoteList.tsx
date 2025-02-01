@@ -4,10 +4,13 @@ import { Note as NoteType } from "../types";
 import Note from "./Note";
 
 const NoteList = () => {
+  // Context import ediliyor.
   const noteContext = useContext(NoteContext);
   if (!noteContext) {
     return <div>Context bekleniyor...</div>;
   }
+
+  // Componentte kullanılacak noteList destruct ediliyor.
   const { noteList } = noteContext;
 
   return (

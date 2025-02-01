@@ -56,5 +56,7 @@ Electron, React, ContextAPI, TailwindCSS
 
 ## Screenshots
 
-[![Image](https://i.hizliresim.com/57zj1zf.png)](https://hizliresim.com/57zj1zf)
-[![Image](https://i.hizliresim.com/iyckunq.png)](https://hizliresim.com/iyckunq)
+<div style="display: flex; justify-content: space-between;">
+  <img src="https://github.com/AhmetSelmanYildirim/NoteKeeper/blob/main/public/Entry.png" width="45%" />
+  <img src="https://github.com/AhmetSelmanYildirim/NoteKeeper/blob/main/public/Notes.png" width="45%" />
+</div>

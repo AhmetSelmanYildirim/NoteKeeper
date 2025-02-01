@@ -40,7 +40,7 @@ const Input = () => {
             className="bg-blue-700 py-0.5 px-2 cursor-pointer rounded-[6px] outline-none font-bold"
             onClick={handleAddNote}
           >
-            Not Ekle
+            Kaydet
           </button>
         </div>
       </div>

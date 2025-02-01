@@ -21,7 +21,7 @@ const NoteList = () => {
           <Note key={note.id} note={note}></Note>
         ))
       ) : (
-        <div>Görüntülenecek not yok</div>
+        <div className="mt-[1em]">Görüntülenecek not yok</div>
       )}
     </div>
   );

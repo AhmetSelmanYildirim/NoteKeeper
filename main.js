@@ -4,7 +4,7 @@ import path from "path";
 import "dotenv/config";
 
 const __dirname = path.resolve();
-
+// main window
 let mainWindow;
 
 // Store yapısı kurgulanıyor.
